@@ -1,0 +1,59 @@
+<html>
+    <title>
+        3D WebGL Homework
+    </title>
+    <head>
+        <h1>3D WebGL Homework</h1>
+        <!-- Vertex Shader -->
+        <script id="vertex-shader" type="x-shader/x-vertex" >
+
+            precision highp float;
+            attribute vec4 vPosition;
+            
+            // a matrix to move the item to where it needs to be
+            uniform mat4 firstT;
+            // a matrix to move the world
+            uniform mat4 midT;
+            
+            void main() 
+            {
+                gl_Position = midT * firstT *  vPosition;
+            }
+            
+        </script>
+        
+        <!-- Fragment Shader -->
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            precision highp float;
+            uniform vec4 uniformEdgeColor;
+
+            void main()
+            {
+                gl_FragColor = uniformEdgeColor;
+            }
+        </script>
+
+        <!-- Nessecary for GL to work in this case-->
+        <script src="https://mirkwood.cs.edinboro.edu/~bennett/GraphicsCode/Common/webgl-utils.js" ></script>
+        <script src="https://mirkwood.cs.edinboro.edu/~bennett/GraphicsCode/Common/initShaders.js"></script>
+        <script src="https://mirkwood.cs.edinboro.edu/~bennett/GraphicsCode/Common/MV.js"></script>
+        
+        <!-- Models -->
+        <script type="text/javascript" src="http://mirkwood.cs.edinboro.edu/~bennett/f360-19/Models/teapot.js"></script>
+        <script type="text/javascript" src="http://mirkwood.cs.edinboro.edu/~bennett/f360-19/Models/epcot.js"></script>
+        <script type="text/javascript" src="http://mirkwood.cs.edinboro.edu/~bennett/f360-19/Models/cube.js"></script>
+        <script type="text/javascript" src="http://mirkwood.cs.edinboro.edu/~bennett/f360-19/Models/xwing.js"></script> 
+        <script type="text/javascript" src="http://mirkwood.cs.edinboro.edu/~bennett/f360-19/Models/lizard.js"></script> 
+
+        <!-- Other files -->
+        <script src="canvas.js"></script>
+        <script src="widget.js"></script>
+        <script src="main.js"></script>
+
+    </head>
+    <body>
+        <div>
+            <a href="3d_cavnas_intro.html">Click here for info on this demo</a>
+        </div>
+    </body>
+</html>
